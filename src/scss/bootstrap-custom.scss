@@ -1,0 +1,218 @@
+/* import only the necessary Bootstrap files */
+
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+
+/* ------- Bootstrap Styles Customization-------- */
+
+// Defining breakpoints values
+$screen-sm-min: 576px;
+$screen-xs-max: ($screen-sm-min - 1);
+$screen-md-min: 768px;
+$screen-sm-max: ($screen-md-min - 1);
+$screen-lg-min: 992px;
+$screen-md-max: ($screen-lg-min - 1);
+$screen-xl-min: 1200px;
+$screen-lg-max: ($screen-xl-min - 1);
+$theme-colors: ( primary: $green);
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#content {
+    min-height: 100vh;
+}
+
+.hero {
+    width: 100%;
+    height: 568px;
+    background-image: url("../img/hero-dummy.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .hero__inner {
+        background: $green;
+        width: 100%;
+        height: 100%;
+        transition: clip-path 0.5s ease-in-out;
+        .hero__message {
+            padding: 2em;
+            h1 {
+                color: #ffffff;
+                font-family: "MaisonNeueExtended-Bold", sans-serif;
+            }
+            p {
+                color: #f0b323;
+                font-family: "MaisonNeue-Demi", sans-serif;
+                font-style: italic;
+                font-weight: 600;
+            }
+            .hero__btn {
+                background: rgba(0, 0, 0, 0.35);
+                border-radius: 24px;
+                color: #ffffff;
+                font-size: 1rem;
+                font-family: "MaisonNeue-Demi", sans-serif;
+                &:hover {
+                    background: rgba(255, 255, 255, 1);
+                    color: rgba(0, 170, 19, 1);
+                }
+            }
+        }
+        @media (max-width: $screen-sm-max) {
+            display: grid;
+            justify-items: center;
+            align-items: bottom;
+            clip-path: circle(60% at 50% 100%);
+            .hero__message {
+                padding: 2em;
+                h1 {
+                    font-size: 1.75rem;
+                    line-height: 1.2;
+                    margin-bottom: 1.5rem;
+                    text-align: center;
+                }
+                p {
+                    font-size: 1.25rem;
+                    text-align: center;
+                }
+                .hero__btn {
+                    width: 100%;
+                }
+            }
+            &:hover {
+                clip-path: circle(70% at 50% 100%);
+            }
+        }
+        @media (min-width: $screen-md-min) {
+            display: grid;
+            justify-items: center;
+            align-items: center;
+            clip-path: circle(65% at 0% 50%);
+            .hero__message {
+                padding: 2em;
+                h1 {
+                    font-size: 3rem;
+                    line-height: 1.2;
+                    margin-bottom: 1.5rem;
+                }
+                p {
+                    font-size: 1.75rem;
+                }
+            }
+            &:hover {
+                clip-path: circle(70% at 0% 50%);
+            }
+        }
+    }
+}
+
+.featured {
+    .featured__img {
+        border-radius: 16px;
+    }
+    .featured__content {
+        align-items: center;
+        display: grid;
+        justify-items: center;
+        h2 {
+            color: #1c1d1d;
+            font-family: "MaisonNeueExtended-Bold", sans-serif;
+            font-size: 32px;
+        }
+        p {
+            color: #494a4a;
+            font-family: "MaisonNeue-Book", sans-serif;
+            font-size: 1rem;
+        }
+        .featured__link {
+            width: 100%;
+            .inner {
+                background: $green;
+                color: $green;
+                width: 100%;
+                clip-path: inset(0% 100% 90% 0%);
+                transition: clip-path 0.25s ease-in-out;
+            }
+            a {
+                color: $green;
+                font-family: "MaisonNeue-Demi", sans-serif;
+                text-decoration: none;
+            }
+            &:hover .inner {
+                clip-path: inset(0% 78% 90% 0%);
+            }
+        }
+    }
+}
+
+.featured-slider {
+    @media (max-width: $screen-sm-max) {
+        img {
+            border-radius: 16px;
+            height: 220px;
+        }
+    }
+    @media (min-width: $screen-md-min) {
+        img {
+            border-radius: 32px;
+            height: 480px;
+        }
+    }
+}
+
+.go-features {
+    a {
+        text-decoration: none;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    h2,
+    h3 {
+        color: #1c1d1d;
+        font-family: "MaisonNeueExtended-Bold", sans-serif;
+    }
+    h2 {
+        font-size: 37px;
+    }
+    h3 {
+        font-size: 32px;
+    }
+    p {
+        color: #494a4a;
+        font-family: "MaisonNeue-Book", sans-serif;
+        line-height: 1.33;
+        font-size: 1rem;
+    }
+    .card {
+        height: 90%;
+        word-wrap: break-word;
+        border-radius: 16px;
+        box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .2);
+        transition: box-shadow 0.25s ease-in-out;
+        &:hover {
+            box-shadow: 0 2px 14px 0 rgba(0, 0, 0, .2);
+        }
+    }
+    .slick-track {
+        display: flex;
+    }
+    .slick-slide {
+        height: inherit;
+    }
+    .left-align-slick>.slick-list>.slick-track {
+        margin-left: 0;
+    }
+}
+
+
+/* ------- End Customization-------- */
+
+
+/* finally, import Bootstrap to set the changes! */
+
+@import "bootstrap/bootstrap";
+
+/* Custom Styles */
